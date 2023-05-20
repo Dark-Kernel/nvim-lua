@@ -1,2 +1,2 @@
 # nvim-lua
-Minimal nvim configs written in lua with multiple cool plugins.
+Minimal nvim configs written in lua with plugins for devs.
