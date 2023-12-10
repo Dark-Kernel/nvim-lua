@@ -7,13 +7,38 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- use {
+	  -- 'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	  -- -- or                            , branch = '0.1.x',
+	  -- requires = { {'nvim-lua/plenary.nvim'} }
+  -- }
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+      'nvim-telescope/telescope.nvim', tag = '0.1.4',
+      -- or                            , branch = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
   }
 
 
+  use {
+    "nvim-neorg/neorg",
+    config = function()
+        require('neorg').setup {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                    },
+                },
+            },
+        }
+    end,
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
+}
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('tpope/vim-fugitive')
   use('rafamadriz/friendly-snippets')
@@ -25,8 +50,13 @@ return require('packer').startup(function(use)
   use('https://github.com/dylanaraps/wal.vim')
   use('eandrju/cellular-automaton.nvim')
   use('https://github.com/ap/vim-css-color')
+  use('https://github.com/fourjay/vim-keeper.git')
+  use('https://github.com/pearofducks/ansible-vim.git')
+  use('https://github.com/m4xshen/autoclose.nvim.git')
   use('https://tpope.io/vim/commentary.git')
   use('https://github.com/saadparwaiz1/cmp_luasnip.git')
+  use('https://github.com/christoomey/vim-tmux-navigator.git')
+  use('fedepujol/move.nvim')
   use({
       "folke/noice.nvim",
       config = function()
