@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/stroky/pix/Pictures/Wall/wXQtAlp.jpeg"
+let background = "#090615"
+let foreground = "#d7b4c2"
+let cursor     = "#d7b4c2"
+
+" Colors
+let color0  = "#090615"
+let color1  = "#64325E"
+let color2  = "#562B62"
+let color3  = "#7B4367"
+let color4  = "#833F78"
+let color5  = "#905475"
+let color6  = "#AC6889"
+let color7  = "#d7b4c2"
+let color8  = "#967d87"
+let color9  = "#64325E"
+let color10 = "#562B62"
+let color11 = "#7B4367"
+let color12 = "#833F78"
+let color13 = "#905475"
+let color14 = "#AC6889"
+let color15 = "#d7b4c2"

@@ -20,38 +20,6 @@ require('lazy').setup({
     { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
   'nvim-telescope/telescope-symbols.nvim',
 
-
-  {
-    "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                    },
-                },
-            },
-        }
-    end,
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-},
-{
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    requires = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  },
     { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = function()
@@ -67,7 +35,7 @@ require('lazy').setup({
   },
   'tpope/vim-fugitive',
   'rafamadriz/friendly-snippets',
-  'https://github.com/ycm-core/YouCompleteMe.git',
+ -- 'https://github.com/ycm-core/YouCompleteMe.git',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -81,7 +49,6 @@ require('lazy').setup({
   'https://github.com/vim-airline/vim-airline',
   'https://github.com/dylanaraps/wal.vim',
   'eandrju/cellular-automaton.nvim',
-  'https://github.com/ap/vim-css-color',
   'https://github.com/fourjay/vim-keeper.git',
   'https://github.com/pearofducks/ansible-vim.git',
   'https://github.com/m4xshen/autoclose.nvim.git',
