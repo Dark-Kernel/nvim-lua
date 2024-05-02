@@ -20,6 +20,7 @@ require('lazy').setup({
     { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
   'nvim-telescope/telescope-symbols.nvim',
 
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = function()

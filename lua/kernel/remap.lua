@@ -13,6 +13,10 @@ vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>")
 vim.keymap.set('n', '<leader>fs', ":Telescope grep_string<CR>")
 
 
+-- # Terminal remap for back to normal mode 
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
+
+
 -- Normal-mode commands
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>==', opts)
