@@ -18,7 +18,20 @@ require('lazy').setup({
     'rcarriga/nvim-notify',
     'hrsh7th/nvim-cmp',
     { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-  'nvim-telescope/telescope-symbols.nvim',
+    'nvim-telescope/telescope-symbols.nvim',
+    {
+        'Exafunction/codeium.vim',
+        event = 'BufEnter',
+        config = function()
+            vim.keymap.set('i', '<C-y>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+        end
+    }, 
+    -- {
+    --   "supermaven-inc/supermaven-nvim",
+    --   config = function()
+    --     require("supermaven-nvim").setup({})
+    --   end,
+    -- },
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     { -- Highlight, edit, and navigate code
@@ -37,7 +50,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'fedepujol/move.nvim',
   'rafamadriz/friendly-snippets',
-  'https://github.com/ycm-core/YouCompleteMe.git',
+  -- 'https://github.com/ycm-core/YouCompleteMe.git',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -48,7 +61,12 @@ require('lazy').setup({
     }
   },
   'https://github.com/ryanoasis/vim-devicons',
-  'https://github.com/vim-airline/vim-airline',
+  -- 'https://github.com/vim-airline/vim-airline',
+     {
+    'nvim-lualine/lualine.nvim',
+    'nativerv/lualine-wal.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
   'https://github.com/dylanaraps/wal.vim',
   'eandrju/cellular-automaton.nvim',
   'https://github.com/fourjay/vim-keeper.git',

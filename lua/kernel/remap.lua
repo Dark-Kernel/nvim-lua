@@ -12,6 +12,9 @@ vim.keymap.set("n", "td", vim.cmd.bdelete)
 vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>")
 vim.keymap.set('n', '<leader>fs', ":Telescope grep_string<CR>")
 
+-- Trouble
+vim.keymap.set('n', '<leader>tt', "<cmd>Trouble diagnostics focus<cr>", {silent = true})
+vim.keymap.set('n', '<leader>ts', "<cmd>Trouble symbols<cr>", {silent = true, noremap = true})
 
 -- # Terminal remap for back to normal mode 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
