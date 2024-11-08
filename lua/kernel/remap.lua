@@ -9,8 +9,8 @@ vim.keymap.set("n", "td", vim.cmd.bdelete)
 
 -- vim.api.nvim_set_keymap("n", "ff", ":Telescope find_files<CR>", {noremap=true})
 -- # If your telescope.lua is throwing 'no matching language server', rewrite the keybinds here like this:
-vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>")
-vim.keymap.set('n', '<leader>fs', ":Telescope grep_string<CR>")
+-- vim.keymap.set('n', '<leader>ff', ":Telescope find_files<CR>")
+-- vim.keymap.set('n', '<leader>fs', ":Telescope grep_string<CR>")
 
 -- Trouble
 vim.keymap.set('n', '<leader>tt', "<cmd>Trouble diagnostics focus<cr>", {silent = true})
