@@ -18,6 +18,7 @@ vim.keymap.set('n', '<leader>ts', "<cmd>Trouble symbols<cr>", {silent = true, no
 
 -- # Terminal remap for back to normal mode 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
+vim.keymap.set('n', '<leader>ff', "<cmd>FloatTerminal<cr>", {silent = true, noremap = true})
 
 
 -- Normal-mode commands

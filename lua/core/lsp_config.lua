@@ -37,3 +37,20 @@ require("lspconfig").solargraph.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+require("lspconfig").clangd.setup({
+            cmd = {
+          "clangd",
+          "--header-insertion=iwyu",
+          "-j",
+          nproc,
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--suggest-missing-includes",
+          "--rename-file-limit=0",
+          "--background-index",
+          "--background-index-priority=normal",
+          "--clang-tidy",
+        },
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+})

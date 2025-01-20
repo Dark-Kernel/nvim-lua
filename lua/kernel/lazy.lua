@@ -13,11 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    'MunifTanjim/nui.nvim',
-    "nvim-lua/plenary.nvim",
-    'rcarriga/nvim-notify',
-    'hrsh7th/nvim-cmp',
-    -- { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+    -- 'MunifTanjim/nui.nvim', -- popup window for menus and inputs
+    -- "nvim-lua/plenary.nvim",
     'nvim-telescope/telescope-symbols.nvim',
     {
 		"nvim-telescope/telescope.nvim",
@@ -76,21 +73,18 @@ require('lazy').setup({
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
 			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
-
 			vim.keymap.set(
 				"n",
 				"<leader>/",
 				builtin.current_buffer_fuzzy_find,
 				{ desc = "/ Fuzzily search in current buffer" }
 			)
-
-			vim.keymap.set("n", "<leader>fs", function()
-				builtin.live_grep({
-					grep_open_files = true,
-					prompt_title = "Live Grep in Open Files",
-				})
-			end, { desc = "Search / in Open Files" })
-
+			-- vim.keymap.set("n", "<leader>fs", function()
+			-- 	builtin.live_grep({
+			-- 		grep_open_files = true,
+			-- 		prompt_title = "Live Grep in Open Files",
+			-- 	})
+			-- end, { desc = "Search / in Open Files" })
 			vim.keymap.set("n", "<leader>sn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "Search Neovim files" })
@@ -103,14 +97,8 @@ require('lazy').setup({
             vim.keymap.set('i', '<C-y>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
         end
     }, 
-    -- {
-    --   "supermaven-inc/supermaven-nvim",
-    --   config = function()
-    --     require("supermaven-nvim").setup({})
-    --   end,
-    -- },
 
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { 'echasnovski/mini.indentscope', version = false },
     { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = function()
@@ -121,22 +109,21 @@ require('lazy').setup({
     }
   },
 
--------------------- Autocompletion
 
-  {
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!).
-	build = "make install_jsregexp"
-  },
+-------------------- Autocompletion -------------------------------------------------------------------------
+
+  -- {
+	-- "L3MON4D3/LuaSnip",
+	-- -- follow latest release.
+	-- version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- -- install jsregexp (optional!).
+	-- build = "make install_jsregexp"
+  -- },
   {     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
-  'tpope/vim-fugitive',
   'fedepujol/move.nvim',
   'rafamadriz/friendly-snippets',
-  -- 'https://github.com/ycm-core/YouCompleteMe.git',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -146,16 +133,12 @@ require('lazy').setup({
       'j-hui/fidget.nvim',
     }
   },
-  'https://github.com/ryanoasis/vim-devicons',
-  -- 'https://github.com/vim-airline/vim-airline',
-     {
+    {
     'nvim-lualine/lualine.nvim',
     'nativerv/lualine-wal.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
   'https://github.com/dylanaraps/wal.vim',
-  'eandrju/cellular-automaton.nvim',
-  'https://github.com/fourjay/vim-keeper.git',
   'https://github.com/pearofducks/ansible-vim.git',
   'https://github.com/m4xshen/autoclose.nvim.git',
   'https://tpope.io/vim/commentary.git',
@@ -176,17 +159,18 @@ require('lazy').setup({
 --          
 --      }
 --  },
-{
-    'rcarriga/nvim-notify',
-    config = function ()
-      require("notify").setup {
-        stages = 'fade_in_slide_out',
-        background_colour = 'FloatShadow',
-        timeout = 3000,
-      }
-      vim.notify = require('notify')
-    end
-},
+-- {
+--     'rcarriga/nvim-notify',
+--     config = function ()
+--       require("notify").setup {
+--         stages = 'fade_in_slide_out',
+--         background_colour = 'FloatShadow',
+--         timeout = 3000,
+--       }
+--       vim.notify = require('notify')
+--     end
+-- },
+{ 'echasnovski/mini.notify', version = false },
 
   {
       "folke/trouble.nvim",
@@ -199,14 +183,14 @@ require('lazy').setup({
           }
       end
   },
+  { 'Z-xus/float.nvim' },
 
-  {
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  },
+  -- {
+  --     "iamcco/markdown-preview.nvim",
+  --     run = function() vim.fn["mkdp#util#install"]() end,
+  -- },
 
-  { "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
-
+  -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
 
 
 })

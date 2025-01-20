@@ -1,0 +1,1 @@
+/home/stroky/.local/share/nvim/lazy/wal.vim/colors/wal.vim
